@@ -1,5 +1,5 @@
 //
-//  FavoritesListScreen.swift
+//  MyCoinsListScreen.swift
 //  CoinCase
 //
 //  Created by Osman Murat Haslak on 9.10.2023.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol FavoritesListScreenInterface: AnyObject {
+protocol MyCoinsListScreenInterface: AnyObject {
     func configureVC()
     func configureMyTotalCoinBalance()
     func configureTableView()
 }
 
-class FavoritesListScreen: UIViewController {
+class MyCoinsListScreen: UIViewController {
   
-    private let viewModel = FavoritesListViewModel()
+    private let viewModel = MyCoinsListViewModel()
     private var tableView = UITableView()
     
     var dataCount: [CoinsResult] = []
@@ -32,7 +32,7 @@ class FavoritesListScreen: UIViewController {
     }
 }
 
-extension FavoritesListScreen: FavoritesListScreenInterface {
+extension MyCoinsListScreen: MyCoinsListScreenInterface {
     
     func configureVC() {
         view.backgroundColor = .systemGray5
@@ -56,7 +56,7 @@ extension FavoritesListScreen: FavoritesListScreenInterface {
             }
         }
                 
-        myBalance.text = "Topla : \(Utils.formatCurrencyDouble(price: totalBalance))"
+        myBalance.text = "Toplam Bakiye : \(Utils.formatCurrencyDouble(price: totalBalance))"
 
         NSLayoutConstraint.activate([
             myBalance.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -89,7 +89,7 @@ extension FavoritesListScreen: FavoritesListScreenInterface {
     }
 }
 
-extension FavoritesListScreen: UITableViewDelegate, UITableViewDataSource {
+extension MyCoinsListScreen: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataCount.count
     }

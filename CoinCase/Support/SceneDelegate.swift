@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createFavoritesNC() -> UINavigationController {
-        let favoritesListVC = FavoritesListScreen()
+        let favoritesListVC = MyCoinsListScreen()
         favoritesListVC.title = "Cüzdan"
         favoritesListVC.tabBarItem = UITabBarItem(title: "Cüzdan", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
         return UINavigationController(rootViewController: favoritesListVC)

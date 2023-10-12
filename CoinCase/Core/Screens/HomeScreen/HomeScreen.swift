@@ -218,16 +218,17 @@ extension HomeScreen: HomeScreenInterface {
         view.addSubview(firstTextField)
         view.addSubview(secondTextField)
         
-        let toolbar = UIToolbar()
-        
-        toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Tamam", style: .plain, target: self, action: #selector(doneButtonTapped))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.items = [flexibleSpace, doneButton]
+//        let toolbar = UIToolbar()
+//        
+//        toolbar.sizeToFit()
+//        let doneButton = UIBarButtonItem(title: "Tamam", style: .plain, target: self, action: #selector(doneButtonTapped))
+//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        toolbar.items = [flexibleSpace, doneButton]
+//        secondTextField.inputAccessoryView = toolbar
+
         
         secondTextField.keyboardType = .numberPad
         secondTextField.returnKeyType = .done
-        secondTextField.inputAccessoryView = toolbar
         secondTextField.translatesAutoresizingMaskIntoConstraints = false
         secondTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
@@ -362,7 +363,7 @@ extension HomeScreen: HomeScreenInterface {
     }
 
     @objc func rightButtonTapped() {
-        let detailVC = FavoritesListScreen()
+        let detailVC = MyCoinsListScreen()
         let myCoins = viewModel.coins.filter { coinResult in
             return coinResult.coinCount ?? 0 > 0
         }
